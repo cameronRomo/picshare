@@ -6,7 +6,11 @@
 
   <p>
     <% user.posts.each do |post| %>
-      <%= post.caption %>
+      <%= link_to image_tag(post&.image.url :preview), post unless post.image.url == nil%>
+      <p>
+        <%= post.caption %>
+        <strong>-<%= link_to post.user.username, post.user %></strong>
+      </p>
     <% end %>
   </p>
 
