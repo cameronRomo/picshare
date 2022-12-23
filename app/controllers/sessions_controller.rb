@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to :users, notice: "Login Successful."
+      redirect_to :posts, notice: "Login Successful."
     else
       flash[:alert] = "Login Failed : ("
       render 'new', status: 403
