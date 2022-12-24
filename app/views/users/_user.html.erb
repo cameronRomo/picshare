@@ -1,17 +1,12 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Username:</strong>
-    <%= user.username %>
-  </p>
-
-  <p>
-    <% user.posts.each do |post| %>
-      <%= link_to image_tag(post&.image.url :preview), post unless post.image.url == nil%>
-      <p>
-        <%= post.caption %>
-        <strong>-<%= link_to post.user.username, post.user %></strong>
-      </p>
-    <% end %>
-  </p>
-
+<div id="<%= dom_id user %>" class="columns is-multiline is-gapless">
+  <% user.posts.each do |post| %>
+    <div class="column is-one-quarter">
+      <div class="image is-4by3">
+        <%= link_to image_tag(post&.image.url :preview), post unless post.image.url == nil%>
+      </div>
+    </div>
+    <p>
+      <%= post.caption %>
+    </p>
+  <% end %>
 </div>

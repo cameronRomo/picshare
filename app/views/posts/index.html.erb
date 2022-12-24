@@ -1,11 +1,8 @@
-<h1>Posts</h1>
-
-<div id="posts">
+<div id="posts" class="columns is-multiline is-gapless">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+    <div class="column is-one-quarter">
+      <%= render post %>
+    </div>
   <% end %>
 </div>
 
